@@ -5,38 +5,47 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-Button workButton;
-Button loginButton;
-String a,b;
+/*
+public class practice_activity extends AppCompatActivity {
+
+    private static int SPLASH_TIME_OUT = 4000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*
-        yelpApiCall.asshole hello = new yelpApiCall.asshole("Mexican","nashville");
-        String bitch = null;
-        try {
-            bitch = hello.execute().get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(bitch);
-        try {
-            JSONConvert gay = new JSONConvert(bitch);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_practice_activity);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                intent homeIntent = new Intent (MainActivity.this, LoginActivity.class);
+                startActivity(homeIntent);
+                finish();
+            }
+        }, SPLASH_TIME_OUT);
+    }
+}
+
+*/
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    Button workButton;
+
+    Button loginButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         workButton= (Button)findViewById(R.id.workButton);
         loginButton = (Button)findViewById(R.id.loginButton);
         workButton.setOnClickListener(this);
         loginButton.setOnClickListener(this);
-
 
     }
     @Override
@@ -48,10 +57,12 @@ String a,b;
             openLoginScreen();
         }
     }
+
     public void openScreen2(){
-        Intent intent = new Intent(this, activity2.class);
+        Intent intent = new Intent(this, activity_choose_search.class);
         startActivity(intent);
     }
+
     public void openLoginScreen(){
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
